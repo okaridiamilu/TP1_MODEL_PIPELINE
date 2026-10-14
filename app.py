@@ -169,7 +169,7 @@ def create_app() -> Flask:
             return error
         student = next((item for item in students if item["id"] == parsed_id), None)
         if student is None:
-            return {"error": "Etudiant introuvable"}, 404
+            return {"error": "Etudiant introuvable"}, 200
         return student, 200
 
     @app.post("/students")
