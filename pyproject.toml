@@ -1,0 +1,37 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+# Le fichier de configuration.
+# Il va définir les dépendances et leurs critères de version, 
+
+[project]
+name = "tp1-model-pipeline"
+version = "0.1.0"
+description = "Projet pedagogique Flask avec tests et linting"
+requires-python = ">=3.12"
+dependencies = [
+    "flask>=3.1",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8",
+    "ruff>=0.14",
+]
+
+[tool.setuptools]
+py-modules = ["app"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+
+
+# critère de bonne convention pour le linting de ruff (dans ce cas la c'est la taille des lignes, et la version prévue)
+[tool.ruff]
+line-length = 88
+target-version = "py312"
+
+# activation de plusieurs groupes de regles, le E pour les erreurs("formatage & style"), le F pour les erreurs de logique, et le I pour les conventions d'importation
+[tool.ruff.lint]
+select = ["E", "F", "I"]
